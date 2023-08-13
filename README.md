@@ -1,35 +1,34 @@
-# Movie explorer 🎥
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-In this task you are invited to create a Movie Catalog Explorer 🎬 :)
+## Getting Started
 
-![](./wf.png)
+First, run the development server:
 
-This image shows the wireframe of the movie catalog you need to implement. Note that You are free to modify it, the image above is just for inspiration :)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-The main requirements are:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- The user should be able to search for movies
-- The user should be able to paginate the catalog
-- We expect you to use React and TypeScript
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### What are we evaluating:
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-- Your `React` skills
-- Your `TypeScript` skills
-- Your `css` skills (use Styled-components is a plus)
+## Learn More
 
-## Server-side api
+To learn more about Next.js, take a look at the following resources:
 
-This project provides a server-side nodejs API that contains the endpoint to retrieve the list of 1000 movies. 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-To start the service API, you need to run:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-    yarn start
+## Deploy on Vercel
 
-and use the url: `http://localhost:8080/movies` to request the movie list.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Additional information
-
-The server API is built on top of the https://github.com/typicode/json-server library. This library offers many features like filtering, sorting and paging.
-
-Good luck!
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -1,0 +1,15 @@
+{
+  "singleQuote": false,
+  "trailingComma": "all",
+  "importOrder": [
+    "^react$",
+    "<THIRD_PARTY_MODULES>",
+    "^(@app)|(@components)|(@services)|(@models)/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "rules": {
+    "react/jsx-props-no-spreading": "off"
+  }
+}

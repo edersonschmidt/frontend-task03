@@ -1,4 +1,4 @@
-const faker = require("faker");
+const { faker } = require('@faker-js/faker');
 
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -13,10 +13,10 @@ module.exports = () => {
     data.movies.push({
       id: `movie-${i}`,
       title: capitalizeFirstLetter(faker.lorem.words()),
-      director: faker.name.findName(),
+      director: faker.person.fullName(),
       description: faker.lorem.paragraph(),
-      year: faker.date.past(10).getFullYear(),
-      coverImage: faker.image.business(),
+      year: faker.date.past({ years: 10 }).getFullYear(),
+      coverImage: faker.image.urlLoremFlickr({ category: 'business' }),
     });
   }
 
