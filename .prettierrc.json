@@ -1,6 +1,8 @@
 {
   "singleQuote": false,
+  "semi": false,
   "trailingComma": "all",
+  "tabWidth": 2,
   "importOrder": [
     "^react$",
     "<THIRD_PARTY_MODULES>",
@@ -11,5 +13,6 @@
   "importOrderSortSpecifiers": true,
   "rules": {
     "react/jsx-props-no-spreading": "off"
-  }
+  },
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

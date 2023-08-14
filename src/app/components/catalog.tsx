@@ -1,19 +1,18 @@
-import Card from "@/app/components/card";
-import Pagination from "@/app/components/pagination";
-import usePagination from "@/app/hooks/usePagination";
-import { Movie } from "@/models/Movie";
+import React from "react"
 
-const ITEMS_PER_PAGE = 12;
-const MAX_PAGE_BUTTONS = 5;
+import Card from "@/app/components/card"
+import Pagination from "@/app/components/pagination"
+import usePagination from "@/app/hooks/usePagination"
+import { Movie } from "@/models/Movie"
+
+const ITEMS_PER_PAGE = 12
+const MAX_PAGE_BUTTONS = 5
 
 interface CatalogProps {
   movies: Movie[]
 }
 
-function Catalog({
-  movies = []
-}: CatalogProps) {
-
+function Catalog({ movies = [] }: CatalogProps) {
   // Pagination logic using frontend only;
   // This is not the best approach, but it works for now
   // Would change to use json-server pagination if I had more time
@@ -24,16 +23,16 @@ function Catalog({
     currentItems,
     goToPage,
     nextPage,
-    prevPage
+    prevPage,
   } = usePagination<Movie>({
     items: movies,
     itemsPerPage: ITEMS_PER_PAGE,
-  });
+  })
 
   return (
     <>
       {movies.length === 0 && (
-        <div className="flex flex-col items-center justify-center flex-1">
+        <div className="flex flex-1 flex-col items-center justify-center">
           <h1 className="text-2xl font-bold text-gray-500">No movies found</h1>
           <p className="text-gray-400">Try another search</p>
         </div>
@@ -47,7 +46,8 @@ function Catalog({
                 title={movie.title}
                 description={movie.description}
                 year={movie.year}
-                coverImageURL={movie.coverImage} />
+                coverImageURL={movie.coverImage}
+              />
             ))}
           </div>
           <Pagination
@@ -61,7 +61,7 @@ function Catalog({
         </div>
       )}
     </>
-  );
+  )
 }
 
-export default Catalog;
+export default Catalog

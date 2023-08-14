@@ -1,26 +1,25 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react"
 
-import SearchBar from '@/app/components/search-bar'
-import TextField from '@/components/text-field'
-import { Movie } from '@/models/Movie';
-import { fetchMovies } from '@/services/api/movies/fetch-movies';
-import Catalog from "@/app/components/catalog";
-import Loading from "@/components/loading";
+import SearchBar from "@/app/components/search-bar"
+import Catalog from "@/app/components/catalog"
+import { Movie } from "@/models/Movie"
+import { fetchMovies } from "@/services/api/movies/fetch-movies"
+import Loading from "@/components/loading"
 
 export default function Home() {
-  const [movies, setMovies] = useState<Movie[] | undefined>();
-  const [filteredMovies, setFilteredMovies] = useState<Movie[] | undefined>();
+  const [movies, setMovies] = useState<Movie[] | undefined>()
+  const [filteredMovies, setFilteredMovies] = useState<Movie[] | undefined>()
 
   useEffect(() => {
     const loadList = async () => {
-      const movies = await fetchMovies();
-      setMovies(movies);
-      setFilteredMovies(movies);
+      const movies = await fetchMovies()
+      setMovies(movies)
+      setFilteredMovies(movies)
     }
 
-    loadList();
+    loadList()
   }, [])
 
   // Filtering logic using frontend only;
@@ -29,28 +28,28 @@ export default function Home() {
   const handleChangeFilter = (value: string) => {
     if (value === "") {
       // reset the list
-      setFilteredMovies(movies);
+      setFilteredMovies(movies)
     } else {
       // Simple filter to search for the title, but could be improved to search for other fields
       // or even use a library like Fuse.js to improve the search
       const filtered = movies?.filter((movie) => {
-        return movie.title.toLowerCase().includes(value.toLowerCase());
+        return movie.title.toLowerCase().includes(value.toLowerCase())
       })
-      setFilteredMovies(filtered);
+      setFilteredMovies(filtered)
     }
   }
 
-  const isLoading = !filteredMovies;
+  const isLoading = !filteredMovies
 
   return (
-    <main className="flex flex-col min-h-screen gap-4 p-6 lg:p-24 lg:gap-8">
+    <main className="flex min-h-screen flex-col gap-4 p-6 lg:gap-8 lg:p-24">
       <SearchBar onChangeFilter={handleChangeFilter} />
       {isLoading && (
-        <div className="flex justify-center"><Loading /></div>
+        <div className="flex justify-center">
+          <Loading />
+        </div>
       )}
-      {filteredMovies && (
-        <Catalog movies={filteredMovies || []} />
-      )}
+      {filteredMovies && <Catalog movies={filteredMovies || []} />}
     </main>
   )
 }

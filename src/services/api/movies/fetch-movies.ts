@@ -1,18 +1,15 @@
-import { Movie } from "@/models/Movie";
-import axiosInstance from "@/services/api/config";
+import { Movie } from "@/models/Movie"
+import axiosInstance from "@/services/api/config"
 
 export const fetchMoviesEndpoint = {
-  path: () =>
-    `/movies`,
-};
+  path: () => `/movies`,
+}
 
 interface FetchMoviesResponse {
-  data: Movie[];
+  data: Movie[]
 }
 
 export const fetchMovies = () =>
   axiosInstance
-    .get<any, FetchMoviesResponse>(
-      fetchMoviesEndpoint.path(),
-    )
-    .then((res) => res.data);
+    .get<never, FetchMoviesResponse>(fetchMoviesEndpoint.path())
+    .then((res) => res.data)
