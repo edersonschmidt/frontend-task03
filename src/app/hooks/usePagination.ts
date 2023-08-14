@@ -30,7 +30,7 @@ const usePagination = <T>({ items, itemsPerPage }: PaginationOptions<T>) => {
         currentItems: savedItems.slice(0, itemsPerPage),
       })
     }
-  }, [items, savedItems])
+  }, [items, savedItems, itemsPerPage])
 
   useEffect(() => {
     const startIndex = (pagination.currentPage - 1) * itemsPerPage

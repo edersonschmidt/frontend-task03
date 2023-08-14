@@ -1,40 +1,43 @@
-import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
-import { useDebounce } from "@uidotdev/usehooks";
+import React from "react"
 
-import SearchBar from "@/app/components/search-bar";
+import SearchBar from "@/app/components/search-bar"
+import { fireEvent, render, waitFor } from "@testing-library/react"
+import { useDebounce } from "@uidotdev/usehooks"
 
 // mocking the debounce hook
 jest.mock("@uidotdev/usehooks", () => ({
-  useDebounce: jest.fn((value, delay) => value),
-}));
+  useDebounce: jest.fn((value) => value),
+}))
 
 describe("SearchBar Component", () => {
-
   it("calls onChangeFilter with debounced text value", async () => {
-    const mockOnChangeFilter = jest.fn();
-    const { getByPlaceholderText } = render(<SearchBar onChangeFilter={mockOnChangeFilter} />);
+    const mockOnChangeFilter = jest.fn()
+    const { getByPlaceholderText } = render(
+      <SearchBar onChangeFilter={mockOnChangeFilter} />,
+    )
 
-    const input = getByPlaceholderText("Search for a movie title");
+    const input = getByPlaceholderText("Search for a movie title")
 
-    fireEvent.change(input, { target: { value: "Test Movie" } });
+    fireEvent.change(input, { target: { value: "Test Movie" } })
 
-    await waitFor(() => expect(useDebounce).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(useDebounce).toHaveBeenCalledTimes(2))
 
-    expect(mockOnChangeFilter).toHaveBeenCalledWith("Test Movie");
-  });
+    expect(mockOnChangeFilter).toHaveBeenCalledWith("Test Movie")
+  })
 
   it("calls onChangeFilter with empty value when input is cleared", async () => {
-    const mockOnChangeFilter = jest.fn();
-    const { getByPlaceholderText } = render(<SearchBar onChangeFilter={mockOnChangeFilter} />);
+    const mockOnChangeFilter = jest.fn()
+    const { getByPlaceholderText } = render(
+      <SearchBar onChangeFilter={mockOnChangeFilter} />,
+    )
 
-    const input = getByPlaceholderText("Search for a movie title");
+    const input = getByPlaceholderText("Search for a movie title")
 
-    fireEvent.change(input, { target: { value: "Test Movie" } });
-    fireEvent.change(input, { target: { value: "" } });
+    fireEvent.change(input, { target: { value: "Test Movie" } })
+    fireEvent.change(input, { target: { value: "" } })
 
-    await waitFor(() => expect(useDebounce).toHaveBeenCalledTimes(5));
+    await waitFor(() => expect(useDebounce).toHaveBeenCalledTimes(5))
 
-    expect(mockOnChangeFilter).toHaveBeenCalledWith("");
-  });
-});
+    expect(mockOnChangeFilter).toHaveBeenCalledWith("")
+  })
+})

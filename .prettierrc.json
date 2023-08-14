@@ -11,8 +11,8 @@
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "rules": {
-    "react/jsx-props-no-spreading": "off"
-  },
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ]
 }

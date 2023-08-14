@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { HiOutlineSearch } from "react-icons/hi"
-import { useDebounce } from "@uidotdev/usehooks"
 
 import TextField from "@/components/textfield"
+import { useDebounce } from "@uidotdev/usehooks"
+import { HiOutlineSearch } from "react-icons/hi"
 
 interface SearchBarProps {
   onChangeFilter: (value: string) => void
@@ -18,6 +18,7 @@ function SearchBar({ onChangeFilter }: SearchBarProps) {
     }
 
     changeFilter()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedText])
 
   return (

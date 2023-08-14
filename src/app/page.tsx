@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from "react"
 
-import SearchBar from "@/app/components/search-bar"
 import Catalog from "@/app/components/catalog"
+import SearchBar from "@/app/components/search-bar"
+import Loading from "@/components/loading"
 import { Movie } from "@/models/Movie"
 import { fetchMovies } from "@/services/api/movies/fetch-movies"
-import Loading from "@/components/loading"
 
 export default function Home() {
   const [movies, setMovies] = useState<Movie[] | undefined>()

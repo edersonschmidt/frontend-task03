@@ -1,8 +1,8 @@
-import React from "react";
-import { getAllByTestId, render } from "@testing-library/react";
+import React from "react"
 
-import Catalog from "@/app/components/catalog";
-import { Movie } from "@/models/Movie";
+import Catalog from "@/app/components/catalog"
+import { Movie } from "@/models/Movie"
+import { render } from "@testing-library/react"
 
 describe("Catalog Component", () => {
   const mockMovies: Movie[] = [
@@ -22,22 +22,24 @@ describe("Catalog Component", () => {
       coverImage: "image2.jpg",
       director: "Director 2",
     },
-  ];
+  ]
 
   it("renders 'No movies found' when movies array is empty", () => {
-    const { getByText } = render(<Catalog movies={[]} />);
+    const { getByText } = render(<Catalog movies={[]} />)
 
-    const noMoviesFoundText = getByText("No movies found");
-    expect(noMoviesFoundText).toBeInTheDocument();
-  });
+    const noMoviesFoundText = getByText("No movies found")
+    expect(noMoviesFoundText).toBeInTheDocument()
+  })
 
   it("renders movies and pagination when there are movies", () => {
-    const { getAllByTestId, getByText } = render(<Catalog movies={mockMovies} />);
+    const { getAllByTestId, getByText } = render(
+      <Catalog movies={mockMovies} />,
+    )
 
-    const movieCards = getAllByTestId("movie-card");
-    const pagination = getByText("Previous");
+    const movieCards = getAllByTestId("movie-card")
+    const pagination = getByText("Previous")
 
-    expect(movieCards).toHaveLength(mockMovies.length);
-    expect(pagination).toBeInTheDocument();
-  });
-});
+    expect(movieCards).toHaveLength(mockMovies.length)
+    expect(pagination).toBeInTheDocument()
+  })
+})

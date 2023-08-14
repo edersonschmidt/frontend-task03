@@ -1,4 +1,5 @@
 import React from "react"
+
 interface PaginationProps {
   maxPageButtonsToShow?: number
   totalPages: number
