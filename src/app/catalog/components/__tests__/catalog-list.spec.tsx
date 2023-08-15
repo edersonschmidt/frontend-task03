@@ -1,10 +1,10 @@
 import React from "react"
 
-import Catalog from "@/app/components/catalog"
+import CatalogList from "@/app/catalog/components/catalog-list"
 import { Movie } from "@/models/Movie"
 import { render } from "@testing-library/react"
 
-describe("Catalog Component", () => {
+describe("CatalogList Component", () => {
   const mockMovies: Movie[] = [
     {
       id: 1,
@@ -25,7 +25,7 @@ describe("Catalog Component", () => {
   ]
 
   it("renders 'No movies found' when movies array is empty", () => {
-    const { getByText } = render(<Catalog movies={[]} />)
+    const { getByText } = render(<CatalogList movies={[]} />)
 
     const noMoviesFoundText = getByText("No movies found")
     expect(noMoviesFoundText).toBeInTheDocument()
@@ -33,7 +33,7 @@ describe("Catalog Component", () => {
 
   it("renders movies and pagination when there are movies", () => {
     const { getAllByTestId, getByText } = render(
-      <Catalog movies={mockMovies} />,
+      <CatalogList movies={mockMovies} />,
     )
 
     const movieCards = getAllByTestId("movie-card")

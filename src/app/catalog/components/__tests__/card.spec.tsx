@@ -1,6 +1,6 @@
 import React from "react"
 
-import Card from "@/app/components/card"
+import Card from "@/app/catalog/components/card"
 import { render } from "@testing-library/react"
 
 describe("Card Component", () => {

@@ -1,6 +1,6 @@
 import React from "react"
 
-import SearchBar from "@/app/components/search-bar"
+import SearchBar from "@/app/catalog/components/search-bar"
 import { fireEvent, render, waitFor } from "@testing-library/react"
 import { useDebounce } from "@uidotdev/usehooks"
 

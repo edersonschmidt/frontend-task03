@@ -1,18 +1,18 @@
 import React from "react"
 
-import Card from "@/app/components/card"
-import Pagination from "@/app/components/pagination"
-import usePagination from "@/app/hooks/usePagination"
+import Card from "@/app/catalog/components/card"
+import Pagination from "@/app/catalog/components/pagination"
+import usePagination from "@/app/catalog/hooks/usePagination"
 import { Movie } from "@/models/Movie"
 
 const ITEMS_PER_PAGE = 12
 const MAX_PAGE_BUTTONS = 5
 
-interface CatalogProps {
+interface CatalogListProps {
   movies: Movie[]
 }
 
-function Catalog({ movies = [] }: CatalogProps) {
+function CatalogList({ movies = [] }: CatalogListProps) {
   // Pagination logic using frontend only;
   // This is not the best approach, but it works for now
   // Would change to use json-server pagination if I had more time
@@ -64,4 +64,4 @@ function Catalog({ movies = [] }: CatalogProps) {
   )
 }
 
-export default Catalog
+export default CatalogList
